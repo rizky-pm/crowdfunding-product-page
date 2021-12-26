@@ -1,0 +1,61 @@
+header {
+    background: url(../../images/image-hero-mobile.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    // background-color: red;
+    position: relative;
+    height: 300px;
+    // z-index: 98;
+
+    nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 25px;
+        width: 100%;
+        z-index: 201;
+    }
+
+    .menu {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 325px;
+        height: 215px;
+        border-radius: 10px;
+        display: none;
+        z-index: 201;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: $colorWhite;
+            border-radius: 10px;
+
+            li {
+                height: calc(100% / 3);
+                font-size: 18px;
+                font-weight: 500;
+                transition: all 0.2s ease;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid rgba(122, 122, 122, 0.25);
+                }
+
+                &:active {
+                    background-color: rgba(122, 122, 122, 0.15);
+                }
+
+                a {
+                    display: block;
+                    padding: 25px 25px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,190 @@
+.modal {
+    display: flex;
+    flex-direction: column;
+    background-color: $colorWhite;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    // position: fixed;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    width: 90%;
+    padding: 25px;
+    border-radius: 10px;
+    z-index: 206;
+    font-size: 14px;
+    margin-bottom: 25px;
+
+    &__nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__desc {
+        margin-top: 25px;
+    }
+
+    &__selection {
+        background-color: $colorWhite;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        padding: 27.5px;
+        border: 2px solid transparent;
+        margin-top: 25px;
+
+        &__input {
+            height: 24px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            // padding: 30px 20px 0 20px;
+
+            input[type='radio'] {
+                display: none;
+            }
+
+            input[type='radio'] + *::before {
+                content: '';
+                display: inline-block;
+                vertical-align: bottom;
+                width: 1.5rem;
+                height: 1.5rem;
+                margin-right: 15px;
+                border-radius: 50%;
+                border-style: solid;
+                border-width: 0.1rem;
+                border-color: gray;
+            }
+
+            input[type='radio']:checked + *::before {
+                background: radial-gradient(
+                    teal 0%,
+                    teal 40%,
+                    transparent 50%,
+                    transparent
+                );
+                border-color: teal;
+            }
+
+            &__label {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        &__desc {
+        }
+
+        &__total-left {
+            color: $colorDarkGray;
+            font-size: 18px;
+            margin: 25px 0;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 0.1fr;
+            gap: 0px 0px;
+            grid-template-areas:
+                'label label'
+                'input button'
+                'error-msg error-msg';
+
+            height: 100%;
+            opacity: 1;
+            padding: 25px 0;
+
+            &.active {
+                height: 100%;
+                opacity: 1;
+                padding: 30px 20px;
+            }
+
+            .form__label {
+                grid-area: label;
+                text-align: center;
+                font-weight: 300;
+                color: $colorDarkGray;
+            }
+
+            .form__input-container {
+                grid-area: input;
+                width: 100px;
+                height: 50px;
+                position: relative;
+
+                .dollar {
+                    position: absolute;
+                    top: 50%;
+                    left: 20%;
+                    transform: translateY(-50%);
+                    color: $colorDarkGray;
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+
+                input {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 25px;
+                    border: 1px solid $colorDarkGray;
+                    outline: none;
+                    text-align: center;
+                    font-size: 18px;
+                    font-family: 'Commissioner', sans-serif;
+                    font-weight: 700;
+                    transition: all 0.2s ease;
+
+                    &:focus {
+                        border: 1px solid $colorModerateCyan;
+                    }
+                }
+            }
+
+            .form__button {
+                grid-area: button;
+                width: 115px;
+                height: 50px;
+            }
+
+            .error-message {
+                grid-area: error-msg;
+                color: red;
+                text-align: center;
+                align-self: flex-end;
+            }
+        }
+
+        &.disabled {
+            opacity: 0.5;
+        }
+    }
+}
+
+.modal-success {
+    background-color: $colorWhite;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 405px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 25px;
+    line-height: 1.5;
+    text-align: center;
+    z-index: 207;
+
+    button {
+        width: 100px;
+    }
+}

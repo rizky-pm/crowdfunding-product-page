@@ -1,0 +1,128 @@
+.content {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .project-summary {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        background-color: $colorWhite;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        width: 325px;
+        height: 280px;
+        padding: 30px 15px;
+        border-radius: 10px;
+
+        &__logo {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &__buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+    }
+
+    .project-progress {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+        background-color: $colorWhite;
+        // background-color: red;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        width: 325px;
+        height: 415px;
+        margin-top: 30px;
+        border-radius: 10px;
+
+        hr {
+            width: 30%;
+        }
+
+        &__detail {
+            span {
+                font-size: 32px;
+                margin-bottom: 5px;
+            }
+
+            .label-backer-progress {
+                visibility: hidden;
+            }
+
+            .backer-progress {
+                width: 280px;
+                height: 10px;
+                border-radius: 20px;
+
+                &::-webkit-progress-bar {
+                    background-color: hsl(0, 0%, 87%);
+                    border-radius: 20px;
+                }
+
+                &::-webkit-progress-value {
+                    background-color: $colorModerateCyan;
+                    border-radius: 20px;
+                }
+            }
+        }
+    }
+
+    .project-about {
+        background-color: $colorWhite;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        width: 325px;
+        margin-top: 30px;
+        border-radius: 10px;
+        padding: 40px 20px;
+
+        &__desc {
+            margin-top: 30px;
+        }
+
+        .plan-card {
+            border: 1px solid rgba(122, 122, 122, 0.35);
+            // box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            border-radius: 10px;
+            margin-top: 25px;
+            padding: 25px;
+            // background-color: red;
+
+            &.disabled {
+                opacity: 0.5;
+            }
+
+            &__desc {
+                margin-top: 25px;
+            }
+
+            span {
+                &.bolded {
+                    font-size: 36px;
+                }
+            }
+
+            p:nth-of-type(2) {
+                // display: flex;
+                // align-items: center;
+                margin-top: 25px;
+            }
+
+            button {
+                width: 160px;
+                margin-top: 25px;
+            }
+        }
+    }
+}
