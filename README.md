@@ -34,7 +34,7 @@ Users should be able to:
 ### Links
 
 -   Solution URL: [Github](https://github.com/rizky-pm/crowdfunding-product-page)
--   Live Site URL: [Github Pages]()
+-   Live Site URL: [Github Pages](https://rizky-pm.github.io/crowdfunding-product-page/)
 
 ## My process
 
