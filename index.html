@@ -85,30 +85,24 @@
                     </label>
                     <input type="checkbox" name="bookmark" id="bookmark">
                 </div>
-                <!-- <button class="btn-icon">
-                    <img src="./images/icon-bookmark.svg" alt="Bookmark Icon">
-                </button> -->
             </div>
         </div>
 
         <div class="project-progress">
-            <div class="project-progress__detail backed">
-                <span class="highlighted-black">
-                    $89,914
+            <div class="project-progress__detail">
+                <span class="highlighted-black money-backed">
                 </span>
                 <p>of $100,000 backed</p>
             </div>
             <hr>
-            <div class="project-progress__detail backers">
-                <span class="highlighted-black">
-                    5,007
+            <div class="project-progress__detail">
+                <span class="highlighted-black total-backers">
                 </span>
                 <p>total backers</p>
             </div>
             <hr>
-            <div class="project-progress__detail days-left">
-                <span class="highlighted-black">
-                    56
+            <div class="project-progress__detail">
+                <span class="highlighted-black days-left">
                 </span>
                 <p>days left</p>
             </div>
@@ -117,7 +111,6 @@
                     Backer Progress
                 </label>
                 <progress class="backer-progress" id="progress" value="89914" max="100000">
-                    $89,914
                 </progress>
             </div>
         </div>
@@ -133,7 +126,7 @@
                 Featuring artisan craftsmanship, the simplicity of design creates extra desk space below your computer to allow notepads, pens, and USB sticks to be stored under the stand.
             </p>
 
-            <div class="plan-card">
+            <div class="plan-card selection-bamboo">
                 <h4 class="plan-card__title">
                     Bamboo Stand
                 </h4>
@@ -144,8 +137,7 @@
                     You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.
                 </p>
                 <p>
-                    <span class="plan-card__remaining bolded">
-                        101
+                    <span class="plan-card__remaining bolded bamboo-stand-left">
                     </span>
                     left
                 </p>
@@ -155,7 +147,7 @@
                 
             </div>
 
-            <div class="plan-card">
+            <div class="plan-card selection-black">
                 <h4 class="plan-card__title">
                     Black Edition Stand
                 </h4>
@@ -166,8 +158,7 @@
                     You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.
                 </p>
                 <p>
-                    <span class="bolded">
-                        64
+                    <span class="plan-card__remaining bolded black-stand-left">
                     </span>
                     left
                 </p>
@@ -234,7 +225,7 @@
             </div>
         </label>
 
-        <label class="modal__selection" for="bamboo-stand">
+        <label class="modal__selection selection-bamboo" for="bamboo-stand">
             <div class="modal__selection__content">
                 <div class="modal__selection__content__input">
                     <input type="radio" class="bamboo back-project" name="back-project" id="bamboo-stand" value="Bamboo Stand">
@@ -251,30 +242,30 @@
                     You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.
                 </p>
                 <p class="modal__selection__content__total-left">
-                    <span class="bolded">101</span> left
+                    <span class="bolded bamboo-stand-left"></span> left
                 </p>
             </div>
             <div class="modal__selection__form">
-                    <hr>
-                    <form action="">
-                        <label class="form__label" for="input-pledge">
-                            Enter your pledge
-                        </label>
-                        <div class="form__input-container">
-                            <span class="dollar">$</span>
-                            <input class="input-bamboo-stand" type="number" name="input-pledge" id="input-pledge">
-                        </div>
-                        <button type="button" class="form__button btn-cta">
-                            Continue
-                        </button>
-                        <p class="error-message">
-                            Minimum pledge is $25
-                        </p>
-                    </form>
+                <hr>
+                <form action="">
+                    <label class="form__label" for="input-pledge">
+                        Enter your pledge
+                    </label>
+                    <div class="form__input-container">
+                        <span class="dollar">$</span>
+                        <input class="input-bamboo-stand" type="number" name="input-pledge" id="input-pledge">
+                    </div>
+                    <button type="button" class="form__button btn-cta">
+                        Continue
+                    </button>
+                    <p class="error-message">
+                        Minimum pledge is $25
+                    </p>
+                </form>
             </div>
         </label>
 
-        <label class="modal__selection" for="black-stand">
+        <label class="modal__selection selection-black" for="black-stand">
             <div class="modal__selection__content">
                 <div class="modal__selection__content__input">
                     <input type="radio" class="black back-project" name="back-project" id="black-stand" value="Black Edition Stand">
@@ -291,7 +282,7 @@
                         You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.
                 </p>
                 <p class="modal__selection__content__total-left">
-                        <span class="bolded">64</span> left
+                        <span class="bolded black-stand-left"></span> left
                 </p>
             </div>
             <div class="modal__selection__form">
@@ -314,7 +305,6 @@
             </div>
         </label>
 
-        
         <label class="modal__selection disabled" for="mahagony-stand">
             <div class="modal__selection__content">
                 <div class="modal__selection__content__input">
@@ -370,6 +360,7 @@
     <div class="modal-overlay"></div>
 
     <script src="./app/js/app.js"></script>
+    <script type="module" src="./app/js/dataset.js"></script>
     <script src="./app/js/radioButtonFunc.js"></script>
 </body>
 </html>

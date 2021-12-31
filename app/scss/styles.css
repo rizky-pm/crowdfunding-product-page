@@ -646,6 +646,10 @@ header .menu ul li a {
   margin-top: 1.5625rem;
 }
 
+.modal__selection:hover {
+  cursor: pointer;
+}
+
 .modal__selection__content {
   background-color: white;
   border-radius: 0.625rem;

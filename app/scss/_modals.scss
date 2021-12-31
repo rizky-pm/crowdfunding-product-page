@@ -33,6 +33,10 @@
         border-radius: 0.625rem;
         margin-top: 1.5625rem;
 
+        &:hover {
+            cursor: pointer;
+        }
+
         &__content {
             background-color: $colorWhite;
             border-radius: 0.625rem;

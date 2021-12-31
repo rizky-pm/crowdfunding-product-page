@@ -10,13 +10,20 @@ let selectedRadio;
 
 let modalSelections = $('.modal__selection');
 
-modalSelections.click(function (e) {
-    // e.preventDefault();
-    // console.log($(this));
-});
-
 let header = document.getElementById('header');
-console.log(header);
+
+const data = {
+    progress: {
+        moneyBacked: 89914,
+        totalBackers: 5007,
+        daysLeft: 56,
+    },
+    stock: {
+        bambooStand: 101,
+        blackStand: 64,
+        mahoganyStand: 0,
+    },
+};
 
 $("input[type='radio']").change(function () {
     // Change Border Color----------------------------------------
@@ -28,6 +35,7 @@ $("input[type='radio']").change(function () {
     radioParent.css('border', '2px solid transparent');
     selectedRadioParent.css('border', '2px solid hsl(176, 50%, 47%)');
     // Change Border Color----------------------------------------
+
     // Showing Pledge Form----------------------------------------
     if (selectedRadio !== undefined) {
         selectedRadio.slideToggle();
@@ -59,28 +67,57 @@ $('.btn-back-this-project').click(function (e) {
 });
 
 // Start of Validate input pledge --------------------------------
-$('.form__button').click(function (e) {
-    e.preventDefault();
+let stockBambooNewValue = data.stock.bambooStand;
 
+$('.form__button').click(function (e) {
     const inputPledge = $(this)
         .siblings('.form__input-container')
         .children('#input-pledge');
 
-    if (inputPledge.val() >= 25) {
-        console.log('Duitnya cukup');
+    const currentOption = $(this)
+        .parent()
+        .parent()
+        .siblings('.modal__selection__content')
+        .children('.modal__selection__content__input')
+        .children("input[type='radio']");
 
+    if (inputPledge.val() >= 25) {
         if ($(this).siblings('.error-message').css('display') != 'none') {
             $(this).siblings('.error-message').slideToggle();
         }
 
         $('.modal').hide();
-
         $('.modal-success').fadeToggle();
+
+        data.progress.moneyBacked += parseInt(inputPledge.val());
+        data.progress.totalBackers += 1;
+        $('.money-backed').text(
+            `$\n${numberWithCommas(data.progress.moneyBacked)}`
+        );
+        $('.backer-progress').attr('value', data.progress.moneyBacked);
+        $('.total-backers').text(numberWithCommas(data.progress.totalBackers));
+
+        switch (currentOption.attr('id')) {
+            case 'no-reward':
+                break;
+            case 'bamboo-stand':
+                data.stock.bambooStand -= 1;
+                $('.bamboo-stand-left').text(data.stock.bambooStand);
+            case 'black-stand':
+                data.stock.blackStand -= 1;
+                $('.black-stand-left').text(data.stock.blackStand);
+            default:
+                break;
+        }
+
+        if (data.stock.bambooStand === 0) {
+            $('.selection-bamboo').addClass('disabled');
+        } else if (data.stock.blackStand === 0) {
+            $('.selection-bamboo').addClass('disabled');
+        }
 
         return true;
     } else if (inputPledge.val() == '') {
-        console.log('Mana duitnya');
-
         $(this).siblings('.error-message').html("Pledge can't be empty");
 
         if ($(this).siblings('.error-message').css('display') == 'none') {
@@ -89,8 +126,6 @@ $('.form__button').click(function (e) {
 
         return false;
     } else if (inputPledge.val() < 25) {
-        console.log('Duitnya kurang bre');
-
         if (inputPledge.hasClass('input-black-stand')) {
             $(this).siblings('.error-message').html('Minimum pledge is $75');
         }
@@ -154,12 +189,14 @@ modalOverlay.click((e) => {
     $('.modal-overlay').fadeToggle();
     $('.modal').slideToggle();
     clearInputRadio();
+    selectedRadio = undefined;
 });
 
 $('.icon-close-modal').click((e) => {
     $('.modal-overlay').fadeToggle();
     $('.modal').slideToggle();
     clearInputRadio();
+    selectedRadio = undefined;
 });
 
 $('.btn-got-it').click((e) => {
@@ -173,6 +210,22 @@ $('.btn-got-it').click((e) => {
     $("input[type='radio']:checked").prop('checked', false);
 
     clearInputRadio();
+    selectedRadio = undefined;
 });
 
 // ---------------------------------------------------------------
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+$(document).ready(function () {
+    $('.money-backed').text(
+        `$\n${numberWithCommas(data.progress.moneyBacked)}`
+    );
+    $('.total-backers').text(numberWithCommas(data.progress.totalBackers));
+    $('.days-left').text(numberWithCommas(data.progress.daysLeft));
+    $('.backer-progress').attr('value', data.progress.moneyBacked);
+    $('.bamboo-stand-left').text(data.stock.bambooStand);
+    $('.black-stand-left').text(data.stock.blackStand);
+});
