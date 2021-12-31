@@ -103,9 +103,13 @@ $('.form__button').click(function (e) {
             case 'bamboo-stand':
                 data.stock.bambooStand -= 1;
                 $('.bamboo-stand-left').text(data.stock.bambooStand);
+                $('.input-black-stand').val('');
+
             case 'black-stand':
                 data.stock.blackStand -= 1;
                 $('.black-stand-left').text(data.stock.blackStand);
+                $('.input-bamboo-stand').val('');
+
             default:
                 break;
         }
@@ -145,6 +149,11 @@ const selectedInputRadio = (inputRadio) => {
         .parent()
         .parent()
         .css('border', '2px solid hsl(176, 50%, 47%)');
+    selectedRadio = inputRadio
+        .parent()
+        .parent()
+        .siblings('.modal__selection__form');
+
     inputRadio
         .parent()
         .parent()
