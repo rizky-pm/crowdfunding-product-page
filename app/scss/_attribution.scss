@@ -1,0 +1,14 @@
+.attribution {
+    margin-top: 1.875rem;
+    text-align: center;
+    // padding: .625rem 0;
+    a {
+        color: inherit;
+        transition: all 0.2s ease;
+
+        &:hover {
+            color: $colorModerateCyan;
+            text-decoration: none;
+        }
+    }
+}

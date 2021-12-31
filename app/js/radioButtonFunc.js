@@ -8,22 +8,35 @@ errorMessage.hide();
 
 let selectedRadio;
 
+let modalSelections = $('.modal__selection');
+
+modalSelections.click(function (e) {
+    // e.preventDefault();
+    // console.log($(this));
+});
+
+let header = document.getElementById('header');
+console.log(header);
+
 $("input[type='radio']").change(function () {
     // Change Border Color----------------------------------------
-    let selectedRadioParent = $('.back-project:checked').parent().parent();
-    let radioParent = $('.back-project').parent().parent();
+    let selectedRadioParent = $('.back-project:checked')
+        .parent()
+        .parent()
+        .parent();
+    let radioParent = $('.back-project').parent().parent().parent();
     radioParent.css('border', '2px solid transparent');
     selectedRadioParent.css('border', '2px solid hsl(176, 50%, 47%)');
     // Change Border Color----------------------------------------
-
     // Showing Pledge Form----------------------------------------
     if (selectedRadio !== undefined) {
         selectedRadio.slideToggle();
     }
-
-    $(this).parent().siblings('.modal__selection__form').slideToggle();
-
-    selectedRadio = $(this).parent().siblings('.modal__selection__form');
+    $(this).parent().parent().siblings('.modal__selection__form').slideToggle();
+    selectedRadio = $(this)
+        .parent()
+        .parent()
+        .siblings('.modal__selection__form');
     // Showing Pledge Form----------------------------------------
 });
 
@@ -92,8 +105,16 @@ $('.form__button').click(function (e) {
 // End of Validate input pledge ----------------------------------
 
 const selectedInputRadio = (inputRadio) => {
-    inputRadio.parent().parent().css('border', '2px solid hsl(176, 50%, 47%)');
-    inputRadio.parent().siblings('.modal__selection__form').slideToggle();
+    inputRadio
+        .parent()
+        .parent()
+        .parent()
+        .css('border', '2px solid hsl(176, 50%, 47%)');
+    inputRadio
+        .parent()
+        .parent()
+        .siblings('.modal__selection__form')
+        .slideToggle();
 };
 
 const clearInputRadio = () => {
@@ -101,9 +122,11 @@ const clearInputRadio = () => {
     $("input[type='radio']")
         .parent()
         .parent()
+        .parent()
         .css('border', '2px solid transparent');
 
     $("input[type='radio']")
+        .parent()
         .parent()
         .siblings('.modal__selection__form')
         .hide();
@@ -114,15 +137,16 @@ $('.btn-select-reward').click(function (e) {
     $('.modal-overlay').fadeToggle();
     $('.modal').slideToggle();
 
-    let scrollHeight = window.pageYOffset;
-    $('.modal').css('top', `${scrollHeight + 100}px`);
-
     if ($(this).hasClass('bamboo-stand')) {
         $('#bamboo-stand').prop('checked', true);
         selectedInputRadio($('#bamboo-stand'));
+
+        window.scrollTo({ top: 300, behavior: 'smooth' });
     } else if ($(this).hasClass('black-stand')) {
         $('#black-stand').prop('checked', true);
         selectedInputRadio($('#black-stand'));
+
+        window.scrollTo({ top: 650, behavior: 'smooth' });
     }
 });
 

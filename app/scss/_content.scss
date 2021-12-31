@@ -3,6 +3,7 @@
     top: 30%;
     left: 50%;
     transform: translateX(-50%);
+    padding: 0 0 3.125rem 0;
 
     .project-summary {
         position: relative;
@@ -12,11 +13,11 @@
         align-items: center;
         text-align: center;
         background-color: $colorWhite;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-        width: 325px;
-        height: 280px;
-        padding: 30px 15px;
-        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0rem 0.0625rem 0.25rem;
+        width: 20.3125rem;
+        height: 17.5rem;
+        padding: 1.875rem 0.9375rem;
+        border-radius: 0.625rem;
 
         &__logo {
             position: absolute;
@@ -30,6 +31,40 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
+            position: relative;
+
+            .checkbox-wrapper {
+                position: relative;
+
+                label {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    .bookmark {
+                        display: none;
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+
+                input[type='checkbox'] {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    margin: 0;
+
+                    font: inherit;
+                    color: currentColor;
+                    width: 3.4375rem;
+                    height: 3.4375rem;
+                    border-radius: 50%;
+                    transform: translateY(-0.075em);
+
+                    display: grid;
+                    place-content: center;
+                }
+            }
         }
     }
 
@@ -41,11 +76,11 @@
         text-align: center;
         background-color: $colorWhite;
         // background-color: red;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-        width: 325px;
-        height: 415px;
-        margin-top: 30px;
-        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0rem 0.0625rem 0.25rem;
+        width: 20.3125rem;
+        height: 25.9375rem;
+        margin-top: 1.875rem;
+        border-radius: 0.625rem;
 
         hr {
             width: 30%;
@@ -53,8 +88,8 @@
 
         &__detail {
             span {
-                font-size: 32px;
-                margin-bottom: 5px;
+                font-size: 2rem;
+                margin-bottom: 0.3125rem;
             }
 
             .label-backer-progress {
@@ -62,18 +97,18 @@
             }
 
             .backer-progress {
-                width: 280px;
-                height: 10px;
-                border-radius: 20px;
+                width: 17.5rem;
+                height: 0.625rem;
+                border-radius: 1.25rem;
 
                 &::-webkit-progress-bar {
                     background-color: hsl(0, 0%, 87%);
-                    border-radius: 20px;
+                    border-radius: 1.25rem;
                 }
 
                 &::-webkit-progress-value {
                     background-color: $colorModerateCyan;
-                    border-radius: 20px;
+                    border-radius: 1.25rem;
                 }
             }
         }
@@ -81,22 +116,22 @@
 
     .project-about {
         background-color: $colorWhite;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-        width: 325px;
-        margin-top: 30px;
-        border-radius: 10px;
-        padding: 40px 20px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0rem 0.0625rem 0.25rem;
+        width: 20.3125rem;
+        margin-top: 1.875rem;
+        border-radius: 0.625rem;
+        padding: 2.5rem 1.25rem;
 
         &__desc {
-            margin-top: 30px;
+            margin-top: 1.875rem;
         }
 
         .plan-card {
-            border: 1px solid rgba(122, 122, 122, 0.35);
-            // box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-            border-radius: 10px;
-            margin-top: 25px;
-            padding: 25px;
+            border: 0.0625rem solid rgba(122, 122, 122, 0.35);
+            // box-shadow: rgba(0, 0, 0, 0.16) 0rem .0625rem .25rem;
+            border-radius: 0.625rem;
+            margin-top: 1.5625rem;
+            padding: 1.5625rem;
             // background-color: red;
 
             &.disabled {
@@ -104,24 +139,186 @@
             }
 
             &__desc {
-                margin-top: 25px;
+                margin-top: 1.5625rem;
             }
 
             span {
                 &.bolded {
-                    font-size: 36px;
+                    font-size: 2.25rem;
                 }
             }
 
             p:nth-of-type(2) {
                 // display: flex;
                 // align-items: center;
-                margin-top: 25px;
+                margin-top: 1.5625rem;
             }
 
             button {
-                width: 160px;
-                margin-top: 25px;
+                width: 9.6875rem;
+                height: 3.125rem;
+                margin-top: 1.5625rem;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 62rem) {
+    .content {
+        top: 47.5%;
+
+        .project-summary {
+            width: 45.3125rem;
+            padding: 1.875rem 3.125rem;
+            justify-content: flex-start;
+
+            &__logo {
+                width: 3.125rem;
+                height: 3.125rem;
+            }
+
+            &__title {
+                margin-top: 1.5625rem;
+            }
+
+            &__description {
+                margin-top: 1.5625rem;
+            }
+
+            &__buttons {
+                margin-top: 2.8125rem;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                .checkbox-wrapper {
+                    width: 10.9375rem;
+                    height: 3.4375rem;
+                    background-color: rgba(122, 122, 122, 0.1);
+                    border-radius: 1.875rem;
+                    display: flex;
+                    justify-content: space-between;
+                    transition: all 0.2s ease;
+
+                    label {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding-right: 0.625rem;
+                        z-index: 1;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+
+                        .bookmark {
+                            display: block;
+                            flex-grow: 1;
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+        }
+
+        .project-progress {
+            width: 45.9375rem;
+            height: 13.125rem;
+            background-color: $colorWhite;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 0rem 0rem;
+            grid-template-areas:
+                'backed backers days-left'
+                'progress-bar progress-bar progress-bar';
+
+            padding: 1.5625rem;
+
+            hr {
+                display: none;
+            }
+
+            &__detail {
+                flex-grow: 1;
+
+                @for $i from 1 through 3 {
+                    &:nth-child(#{$i}) {
+                        border-right: 0.0625rem solid $colorDarkGray;
+                    }
+                }
+
+                &.backed {
+                    grid-area: backed;
+                }
+
+                &.backers {
+                    grid-area: backers;
+                }
+
+                &.days-left {
+                    grid-area: days-left;
+                }
+
+                &.progress-bar {
+                    grid-area: progress-bar;
+                    // width: 100%;
+                    position: relative;
+
+                    .backer-progress {
+                        width: 100%;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+            }
+        }
+
+        .project-about {
+            width: 45.9375rem;
+            padding: 3.125rem;
+
+            &__desc {
+                line-height: 2;
+                font-size: 1rem;
+            }
+
+            .plan-card {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 0.25fr 1fr 1fr;
+                gap: 0rem 0rem;
+                grid-template-areas:
+                    'title highlighted'
+                    'desc desc'
+                    'remaining btn-select-reward';
+
+                &__title {
+                    grid-area: title;
+                }
+
+                &__highlighted {
+                    grid-area: highlighted;
+                    justify-self: flex-end;
+                }
+
+                &__desc {
+                    grid-area: desc;
+                }
+
+                &__remaining {
+                    grid-area: remaining;
+                }
+
+                .btn-select-reward {
+                    grid-area: btn-select-reward;
+                    justify-self: flex-end;
+                }
             }
         }
     }

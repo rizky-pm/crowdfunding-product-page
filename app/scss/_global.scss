@@ -14,7 +14,7 @@ html {
 
 body {
     font-family: 'Commissioner', sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 ul {
@@ -33,24 +33,41 @@ p {
 
 button {
     font-family: 'Commissioner', sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
+
+    &:hover {
+        cursor: pointer;
+    }
 
     &.btn-cta {
-        width: 215px;
-        height: 55px;
-        border-radius: 30px;
+        width: 13.4375rem;
+        height: 3.4375rem;
+        border-radius: 1.875rem;
         font-weight: 700;
         background-color: $colorModerateCyan;
         border: none;
         color: $colorWhite;
+        transition: all 0.2s ease-in;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $colorDarkCyan;
+            transform: translateY(-0.3125rem);
+        }
+
+        &:active {
+            transform: translateY(-0.15625rem);
+        }
     }
 
     &.btn-icon {
-        height: 55px;
+        width: 3.4375rem;
+        height: 3.4375rem;
         border-radius: 50%;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        border: none;
     }
 
     &.disabled {
@@ -59,15 +76,11 @@ button {
     }
 }
 
-label {
-    font-weight: 700;
-}
-
 span {
     color: black;
 
     &.highlighted {
-        margin-top: 5px;
+        margin-top: 0.3125rem;
         display: block;
         color: $colorModerateCyan;
         font-weight: 500;
@@ -81,6 +94,7 @@ span {
 
     &.bolded {
         font-weight: 700;
+        font-size: 1.25rem;
     }
 }
 
